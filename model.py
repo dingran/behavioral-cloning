@@ -18,11 +18,14 @@ from keras.applications.resnet50 import ResNet50
 from keras.applications.inception_v3 import InceptionV3
 
 data_dirs = ['sample_data', 'data_bridge_and_dirtroad', 'recovery_drive', 'data_lap']
-# data_dirs = ['data_lap', 'data_bridge_and_dirtroad']
+# sample_data is the folder holding the sample data from Udacity
+# data_lap is the folder holding additional 2 laps of center lane driving
+# data_bridge_and_dirtroad is the folder holding additional training data on the bridge and turn near the dirt road
+# recovery_drive is the folder holding training data for recovery from significantly off center position to lane center
 
-use_side_images = False
-do_augmentation = True
-use_model = 'nvidia'
+use_side_images = False  # specify whether to include left/right camera images
+do_augmentation = True  # here augmentation is only flipping the image horizontally
+use_model = 'nvidia'  # specify which model to use
 # use_model = 'inception'
 
 images = []
@@ -146,12 +149,11 @@ else:
     adam_opt = keras.optimizers.Adam(lr=0.0001, decay=1e-6)
     model.compile(loss='mse', optimizer=adam_opt)
 
-
 model_fname = 'model_{}.h5'.format(model_name)
 print('model to be saved as {}'.format(model_fname))
-checkpoint = ModelCheckpoint(model_fname, monitor='val_loss', verbose=1,
-                             save_best_only=True, mode='auto')
+
+checkpoint = ModelCheckpoint(model_fname, monitor='val_loss', verbose=1, save_best_only=True, mode='auto')
 earlystop = EarlyStopping(monitor='val_loss', min_delta=0, patience=3, verbose=0, mode='auto')
-# model.fit(X_train, y_train, validation_split=0.2, shuffle=True, nb_epoch=7, batch_size=16)
+
 model.fit(X_train, y_train, validation_split=0.2, shuffle=True, batch_size=256, epochs=100,
-          callbacks=[checkpoint, earlystop])
+          callbacks=[checkpoint, earlystop])  # need to set batch size to 32 when training inception-v3
