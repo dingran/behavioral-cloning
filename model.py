@@ -22,7 +22,8 @@ data_dirs = ['sample_data', 'data_bridge_and_dirtroad', 'recovery_drive', 'data_
 
 use_side_images = False
 do_augmentation = True
-use_model = 'nvidia'
+# use_model = 'nvidia'
+use_model = 'inception'
 
 images = []
 measurements = []
@@ -152,5 +153,5 @@ checkpoint = ModelCheckpoint(model_fname, monitor='val_loss', verbose=1,
                              save_best_only=True, mode='auto')
 earlystop = EarlyStopping(monitor='val_loss', min_delta=0, patience=3, verbose=0, mode='auto')
 # model.fit(X_train, y_train, validation_split=0.2, shuffle=True, nb_epoch=7, batch_size=16)
-model.fit(X_train, y_train, validation_split=0.2, shuffle=True, batch_size=256, epochs=100,
+model.fit(X_train, y_train, validation_split=0.2, shuffle=True, batch_size=32, epochs=100,
           callbacks=[checkpoint, earlystop])
