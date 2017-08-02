@@ -1,8 +1,22 @@
 # Behavioral Cloning
 ---
 
-# TOC
-TBA
+## Table of Content
+* [Introduction](#introduction)
+* [Rubric Points](#rubric-points)
+  * [Files Submitted &amp; Code Quality](#files-submitted--code-quality)
+    * [1\. Submission includes all required files and can be used to run the simulator in autonomous mode](#1-submission-includes-all-required-files-and-can-be-used-to-run-the-simulator-in-autonomous-mode)
+    * [2\. Submission includes functional code](#2-submission-includes-functional-code)
+    * [3\. Submission code is usable and readable](#3-submission-code-is-usable-and-readable)
+  * [Model Architecture and Training Strategy](#model-architecture-and-training-strategy)
+    * [1\. An appropriate model architecture has been employed](#1-an-appropriate-model-architecture-has-been-employed)
+    * [2\. Attempts to reduce overfitting in the model](#2-attempts-to-reduce-overfitting-in-the-model)
+    * [3\. Model parameter tuning](#3-model-parameter-tuning)
+    * [4\. Appropriate training data](#4-appropriate-training-data)
+  * [Model Architecture and Training Strategy](#model-architecture-and-training-strategy-1)
+    * [1\. Solution Design Approach](#1-solution-design-approach)
+    * [2\. Final Model Architecture](#2-final-model-architecture)
+    * [3\. Creation of the Training Set &amp; Training Process](#3-creation-of-the-training-set--training-process)
 
 ## Introduction
 
@@ -19,13 +33,6 @@ The goals / steps of this project are the following:
 [gif1]: ./gif1.gif
 [gif2]: ./gif2.gif
 [gif3]: ./gif3.gif
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
 
 ## Rubric Points
 Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.
@@ -144,7 +151,7 @@ The following gif shows what a recovery looks like:
 ![alt text][gif1]
 
 
-To augment the data sat, I also flipped images and angles thinking that this would work similarly as driving reversely on the track.
+To augment the data set, I also flipped images and angles thinking that this would work similarly as driving reversely on the track.
 Additional augmentation is possible by making use of the left/right camera images, though in practice it didn't prove to improve results.
 
 After the collection process, I had 33462 data points. For each images, I converted the image from BGR mode (due to OpenCV convention)
