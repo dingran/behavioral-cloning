@@ -164,4 +164,4 @@ The validation set helped determine if the model was over or under fitting.
 I used early stopping callback let the training stop automatically when the validation loss no longer improves within 3 epochs.
 For training model ````nvidia```` I used a batch size of 256 for training ````inception```` I used a batch size of 32.
 
-The model was able to successfully drive around the track. One lap is recorded as [video.mp4](video.mp4)
+The model was able to successfully drive around the track. One lap is recorded as [video.mp4](video.mp4).
