@@ -1,0 +1,17 @@
+You can also watch this video of George Hotz from Comma.AI to learn about some of the drawbacks of behavioral cloning.
+
+And for further reading on steering techniques, check out these links:
+
+http://selfdrivingcars.mit.edu/
+https://medium.com/udacity/teaching-a-machine-to-steer-a-car-d73217f2492c
+
+
+
+Note that the sample data provided by Udacity (see here) can also be sufficient on its own to train a robust model for Track 1.
+Although you state that it didn't seem to help much, I personally found that simply using all 3 cameras and training with fewer 0 steering-angle samples was the key to building a successful model. (e.g., using ±0.25 for the steering correction)
+
+
+The model from comma.ai is another good architecture you could have used that works well for this behavioral cloning problem.
+https://github.com/commaai/research/blob/master/train_steering_model.py
+
+You could also try plotting a histogram of the training data to look for any unusual characteristics. For example, a distribution of the steering angles:
